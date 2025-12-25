@@ -25,7 +25,6 @@ sudo systemctl daemon-reload
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 ```
-
 #### Plugins:
 * Stage view
 
