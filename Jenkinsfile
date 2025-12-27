@@ -1,15 +1,22 @@
 pipeline {
+    // Pre-Build
     agent {
         node {
         label 'AGENT-1'
         }
     }
+    environment{
+        COURSE = "Jenkins"
+    }
+
+    // Build
     stages {
         stage('Build') {
             steps {
                 script {
                     sh """
                         echo "Building"
+                        echo $COURSE
                     """
                 }
                 
@@ -20,6 +27,7 @@ pipeline {
                script {
                     sh """
                         echo "Testing"
+                        echo $COURSE
                     """
                }
             }
@@ -29,11 +37,14 @@ pipeline {
                 script {
                     sh """
                         echo "Deploying"
+                        echo $COURSE
                     """
                 }
             }
         }
     }
+
+    // Post-Build
     post{
         always{
             echo 'I will always say hello Again!'
