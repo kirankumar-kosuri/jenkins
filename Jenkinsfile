@@ -9,7 +9,7 @@ pipeline {
         COURSE = "Jenkins"
     }
     options {
-        timeout(time: 15, unit: 'SECONDS') 
+        timeout(time: 10, unit: 'SECONDS') 
     }
 
     // Build
@@ -20,7 +20,7 @@ pipeline {
                     sh """
                         echo "Building"
                         echo $COURSE
-                        sleep 15
+                        sleep 10
                         env
                     """
                 }
@@ -60,6 +60,9 @@ pipeline {
         }
         failure{
             echo 'I will run if failure'
+        }
+        aborted{
+            echo 'pipelines are aborted'
         }
     }
 }
