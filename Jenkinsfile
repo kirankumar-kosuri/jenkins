@@ -1,5 +1,5 @@
 pipeline {
-    // Pre-Build
+    // Pre-Build-Section
     agent {
         node {
         label 'AGENT-1'
@@ -21,7 +21,7 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
-    // Build
+    // Build-Section
     stages {
         stage('Build') {
             steps {
@@ -31,7 +31,7 @@ pipeline {
                         echo $COURSE
                         sleep 10
                         env
-                        
+
                         echo "Hello ${params.PERSON}"
                         echo "Biography: ${params.BIOGRAPHY}"
                         echo "Toggle: ${params.TOGGLE}"
@@ -65,7 +65,7 @@ pipeline {
         }
     }
 
-    // Post-Build
+    // Post-Build-Section
     post{
         always{
             echo 'I will always say hello Again!'
