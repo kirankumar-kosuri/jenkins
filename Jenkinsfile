@@ -17,7 +17,7 @@ pipeline {
                     sh """
                         echo "Building"
                         echo $COURSE
-                        // env
+                        env
                     """
                 }
                 
@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh """"
+                    sh """
                         echo "Deploying"
                         echo $COURSE
                     """
