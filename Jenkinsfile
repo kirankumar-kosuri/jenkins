@@ -55,7 +55,7 @@ pipeline {
             echo "I will Run if Failure"
         }
         aborted {
-            echo "Pipelines are aborted "
+            echo " Jenkins Pipelines are aborted "
         }
     }
 }
