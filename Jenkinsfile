@@ -2,10 +2,14 @@ pipeline {
     agent  {
         node {
             label 'AGENT-1'
+        }
     }
-    }
+    
     environment {
         COURSE = "Jenkins CICD"
+    }
+    options {
+        timeout(time: 10, unit: 'SECONDS') 
     }
     stages {
         stage('Build') {
@@ -48,6 +52,9 @@ pipeline {
         }
         failure {
             echo "I will Run if Failure"
+        }
+        aborted {
+            echo "Pipelines are aborted"
         }
     }
 }
