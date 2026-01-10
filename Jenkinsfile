@@ -3,13 +3,17 @@ pipeline {
         node {
             label 'AGENT-1'
     }
-}
+    }
+    environment {
+        COURSE = "Jenkins CICD"
+    }
     stages {
         stage('Build') {
             steps {
                 script {
                     sh """
                         echo "Building"
+                        echo $COURSE
                     """
                 }
             }
