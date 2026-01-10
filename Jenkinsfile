@@ -26,5 +26,11 @@ pipeline {
             echo 'I will always say Hello again!'
             cleanWs()
         }
+        success {
+            echo "I will Run if Success"
+        }
+        failure {
+            echo "I will Run if Failure"
+        }
     }
 }
