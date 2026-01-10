@@ -9,7 +9,8 @@ pipeline {
         COURSE = "Jenkins CICD"
     }
     options {
-        timeout(time: 10, unit: 'SECONDS') 
+        timeout(time: 10, unit: 'MINUTES') 
+        disableConcurrentBuilds()
     }
     stages {
         stage('Build') {
@@ -18,7 +19,7 @@ pipeline {
                     sh """
                         echo "Building"
                         echo $COURSE
-                        sleep 10
+                        #sleep 10
                         env
                     """
                 }
